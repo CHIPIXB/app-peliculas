@@ -125,6 +125,9 @@ h6{
 .ver-mas-btn:hover {
     background-color: white;
     color: #0a192f;
+    h5{
+        color: white;
+    }
 }
 
 /* Descripción */

@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class Home {
   page: number = 1
   total_pages: number = 1
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.cargarPeliculas();
@@ -51,6 +52,6 @@ export class Home {
   }
 
   verDetalle(id: any) {
-    console.log('Ver detalle de la película:', id);
+    this.router.navigate(['/movie', id]);
   }
 }
