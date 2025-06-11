@@ -1,1 +1,7 @@
 <p>movie-detail works!</p>
+<p><span>Título: </span>{{movie?.title}}</p>
+<p><span>Descripción: </span>{{movie?.overview}}</p>
+<p><span>Estreno: </span>{{movie?.release_date | date}}</p>
+<p><span>Nota: </span>{{movie?.vote_average}}</p>
+<div><span>Imagen: </span><img [src]="movie?.poster_path" alt="{{movie?.title}}"></div>
+<p><span>Idioma original: </span>{{movie?.original_language}}</p>
