@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Movies } from '../../services/movies';
 import { Movie } from '../../interface/interface';
-import { DatePipe, JsonPipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-movie-detail',
@@ -12,11 +13,15 @@ import { DatePipe, JsonPipe } from '@angular/common';
 export class MovieDetail {
 
   movie: Movie | null = null;
+  director: string | null = null;
+  cast: any[] = [];
 
-  constructor(private movieService: Movies) {}
+  constructor(private http: HttpClient, private movieService: Movies) {}
 
   ngOnInit() {
-    this.getMovieDetails(this.getMovieIdFromUrl());
+    const movieId = this.getMovieIdFromUrl();
+    this.getMovieDetails(movieId);
+    this.getMovieCredits(movieId);
   }
 
   getMovieDetails(movieId: number) {
@@ -30,11 +35,24 @@ export class MovieDetail {
     });
 
   }
+
   getMovieIdFromUrl() {
     const url = window.location.href;
     const parts = url.split('/');
     const movieId = parseInt(parts[parts.length - 1], 10);
     return isNaN(movieId) ? 0 : movieId;  
   }
+
+  getMovieCredits(movieId: number) {
+  this.movieService.getMovieCredits(movieId).subscribe({
+    next: (data) => {
+      this.director = data.director;
+      this.cast = data.cast;
+    },
+    error: (error) => {
+      console.error('Error al cargar los créditos de la película:', error);
+    }
+  });
+}
 
 }

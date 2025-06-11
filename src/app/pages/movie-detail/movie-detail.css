@@ -1,8 +1,55 @@
-span {
-    color: white;
+
+article {
+    padding: 50px;
+    display: flex;
+    max-width: 1440px;
+    margin: 50px auto;
+    border-top: 2px solid rgb(199, 243, 250) ;
+    border-bottom: 2px solid rgb(199, 243, 250)  ;
 }
 
-img {
-    width: 100px;
-    height: 100px;
+figure {
+    margin: 0 40px;
+    img{
+        border-radius: 15px;
+    }
+}
+
+.contenido {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.info{
+    margin: auto 0;
+
+    .info-movie {
+        display: flex;
+        p{
+            margin-right: 30px;
+        }
+    }
+    .parrafos {
+        display: flex;
+        flex-wrap: wrap;
+        p {
+            color: white;
+        }
+    }
+
+}
+
+.actor-img {
+    width: 45px ;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    
 }

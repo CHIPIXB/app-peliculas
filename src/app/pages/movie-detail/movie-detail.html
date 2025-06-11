@@ -1,7 +1,54 @@
-<p>movie-detail works!</p>
-<p><span>Título: </span>{{movie?.title}}</p>
-<p><span>Descripción: </span>{{movie?.overview}}</p>
-<p><span>Estreno: </span>{{movie?.release_date | date}}</p>
-<p><span>Nota: </span>{{movie?.vote_average}}</p>
-<div><span>Imagen: </span><img [src]="movie?.poster_path" alt="{{movie?.title}}"></div>
-<p><span>Idioma original: </span>{{movie?.original_language}}</p>
+<article>
+    <div class="d-flex flex-column flex-md-row contenido">
+        <figure>
+            <img [src]="'https://image.tmdb.org/t/p/w200/' + movie?.poster_path" alt="{{movie?.title}}">
+        </figure>
+
+        <div class="info">
+            <h2>{{movie?.title?.toUpperCase()}}</h2>
+            <section>
+                <div class="parrafos">
+                    <div class="info-movie">
+                        <ul> 
+                            @for (genre of movie?.genres ?? []; track genre.id) {
+                                <li>{{ genre.name }}</li>
+                            }
+                        </ul>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-clock"></i>
+                                {{ movie?.runtime }} min
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-calendar-check"></i>
+                                {{movie?.release_date | date: 'MM/yyyy'}}</li>
+                            <li>
+                                <i class="fa-solid fa-star"></i>
+                                {{movie?.vote_average}}</li>
+                            <li>
+                                <i class="fa-solid fa-earth-americas"></i>
+                                {{movie?.original_language?.toUpperCase()}}</li>
+                        </ul>
+                    </div>
+                    <ul>
+                        <li>{{movie?.overview}}</li>
+                        <li>Dirección:</li>
+                        <li>{{ director }}</li>
+                    </ul>
+                </div>
+                <ul class="list-unstyled d-flex flex-wrap">
+                    @for (actor of cast; track actor.name) {
+                        <li class="d-flex flex-column align-items-center">
+                        @if (actor.profile_path) {
+                            <img [src]="'https://image.tmdb.org/t/p/w45' + actor.profile_path" alt="{{ actor.name }}">
+                        }
+                        {{ actor.name }} ({{ actor.character }})
+                        </li>
+                    }
+                </ul>
+            </section>
+        </div>
+    </div>
+</article>
+
+
