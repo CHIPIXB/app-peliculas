@@ -1,0 +1,40 @@
+.navbar{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    h1{
+        color: rgb(50, 166, 212);
+        padding-left: 12px;
+    }
+
+    a:hover{
+        color: rgb(50, 166, 212);
+        cursor: pointer;
+        border-bottom: 1px solid rgb(255, 255, 255);
+    }
+}
+
+input {
+    border-radius: 50px;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 2px solid  rgb(50, 166, 212);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid  rgb(106, 225, 255);
+}
+
+button{
+
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid transparent;
+    background-color: transparent;
+    color: rgb(50, 166, 212);
+    font-weight: 600;
+    &:hover{
+        color:  rgb(106, 225, 255);
+    }
+}

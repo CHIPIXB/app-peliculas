@@ -9,6 +9,10 @@ h6{
     color: rgb(255, 255, 255);
 }
 
+h2{
+    color: rgb(255, 255, 255) ;
+}
+
 
 .paginacion {
     display: flex;
@@ -123,10 +127,10 @@ h6{
 }
 
 .ver-mas-btn:hover {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: #0a192f;
     h5{
-        color: white;
+        color: rgb(255, 255, 255);
     }
 }
 
