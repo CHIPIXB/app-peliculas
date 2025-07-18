@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
@@ -18,7 +18,7 @@ export class Navbar {
         this.router.navigate(['/search'], {
           queryParams: { q: this.searchTerm }
         });
-        this.searchTerm = ''; // limpia el input
+        this.searchTerm = '';
       }
     }
 }

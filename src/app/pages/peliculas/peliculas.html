@@ -1,0 +1,39 @@
+<div class="container my-4">
+    <h2 class="mb-4">Todas las películas</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-4">
+        @for (movie of movies; track movie.id) {
+            <div class="pelicula col" (click)="verDetalle(movie.id)">
+                <div class="imagen-contenedor">
+                    <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path" [alt]="movie.title">
+
+                    <div class="overlay-info">
+                        <p class="descripcion">{{ movie.overview }}</p>
+                        <button class="ver-mas-btn" (click)="verDetalle(movie.id); $event.stopPropagation()">Ver más</button>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <hgroup class="mx-2">
+                        <h5 class="card-title mt-3">{{ movie.title }}</h5>
+                        <h6 class="card-subtitle mb-2">{{ movie.release_date | date: 'yyyy' }}</h6>
+                    </hgroup>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="paginacion">
+
+        <button class="circle" (click)="page > 1 && cambiarPagina(page - 1)" 
+            [disabled]="page === 1">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        @for (newPage of pages; track newPage) {
+        <button class="circle" (click)="cambiarPagina(newPage)" [disabled]="newPage === page">{{ newPage }}</button>
+        }
+
+        <button class="circle" (click)="page < pages[pages.length - 1] && cambiarPagina(page + 1)" [disabled]="page === pages[pages.length - 1]">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+</div>
