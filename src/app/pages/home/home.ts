@@ -7,7 +7,7 @@ import { BusquedaService } from '../../services/busqueda';
 
 @Component({
   selector: 'app-home',
-  imports: [DatePipe, Navbar],
+  imports: [DatePipe],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

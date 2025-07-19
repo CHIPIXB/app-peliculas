@@ -1,18 +1,24 @@
 
 article {
-    padding: 50px;
+    padding: 3rem 2rem;
     display: flex;
-    max-width: 1440px;
-    margin: 50px auto;
-    border-top: 2px solid rgb(199, 243, 250) ;
-    border-bottom: 2px solid rgb(199, 243, 250)  ;
+    max-width: 1400px;
+    margin: 4rem auto;
+    border-top: 2px solid #61dafb49;
+    border-bottom: 2px solid #61dafb49;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 figure {
-    margin: 0 40px;
-    img{
-        border-radius: 15px;
-    }
+    margin: 0 2rem 0 0;
+}
+
+figure img {
+    border-radius: 15px;
+    width: 260px;
+    height: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .contenido {
@@ -20,23 +26,18 @@ figure {
     max-width: 1200px;
 }
 
-.info{
-    margin: auto 0;
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
 
-    .info-movie {
-        display: flex;
-        p{
-            margin-right: 30px;
-        }
-    }
-    .parrafos {
-        display: flex;
-        flex-wrap: wrap;
-        p {
-            color: white;
-        }
-    }
-
+.info h2 {
+    color: #61dafb;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .actor-img {
@@ -53,3 +54,37 @@ ul {
     column-gap: 20px;
     
 }
+
+.info-movie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.info-movie ul {
+    padding: 0;
+    margin: 0;
+}
+
+.parrafos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.parrafos ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #a0abb5;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+i {
+    margin-right: 6px;
+    color: #61dafb;
+}
+
