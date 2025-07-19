@@ -1,0 +1,163 @@
+
+img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+}
+
+h6{
+    color: rgb(255, 255, 255);
+}
+
+h2{
+    color: rgb(255, 255, 255) ;
+}
+
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.circle {
+    background-color: #112240;
+    color: #61dafb;
+    border: 2px solid #61dafb;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle:hover {
+    background-color: #0a1930;
+    border-color: white;
+    color: white;
+}
+
+.circle.activo {
+    background-color: #61dafb;
+    color: #0a1930;
+    font-weight: bold;
+    border-color: #61dafb;
+}
+
+.circle:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.pelicula {
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.pelicula:hover {
+    box-shadow: 0 8px 16px rgba(94, 109, 112, 0.247);
+}
+
+.imagen-contenedor {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    border-radius: 10px;
+}
+
+/* Imagen con efecto */
+.imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+}
+
+.pelicula:hover .imagen-contenedor img {
+    transform: scale(1.1);
+    filter: brightness(70%) blur(2px);
+    opacity: 0.9;
+}
+
+/* Overlay con info y botón */
+.overlay-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    transition: opacity 0.4s ease;
+    text-align: center;
+}
+
+.pelicula:hover .overlay-info {
+    opacity: 1;
+}
+
+/* Botón */
+.ver-mas-btn {
+    background-color: #61dafb;
+    color: #0a192f;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: #0a192f;
+    h5{
+        color: rgb(255, 255, 255);
+    }
+}
+
+/* Descripción */
+.descripcion {
+    font-size: 0.9rem;
+    max-height: 4.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em;
+}
+
+.cabecera-busqueda {
+    background-color: #0a192f;
+    color: #61dafb;
+    padding: 2rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #112240;
+}
+
+    .cabecera-busqueda h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+    .cabecera-busqueda p {
+    margin: 0.5rem 0 0;
+    color: #ccc;
+}

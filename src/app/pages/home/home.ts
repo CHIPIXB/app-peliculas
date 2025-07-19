@@ -2,18 +2,23 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Navbar } from "../../components/navbar/navbar";
+import { BusquedaService } from '../../services/busqueda';
 
 @Component({
   selector: 'app-home',
-  imports: [DatePipe],
+  imports: [DatePipe, Navbar],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
   movies: any[] = [];
   series: any[] = [];
+  resultados: any[] = [];
+  busqueda: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+
+  constructor(private http: HttpClient, private router: Router, private busquedaService: BusquedaService) {}
 
   ngOnInit() {
     this.getPeliculas();
@@ -49,6 +54,18 @@ export class Home {
       this.router.navigate(['/movie', id]);
     } else {
       this.router.navigate(['/serie', id]);
+    }
+  }
+
+    buscar(query: string) {
+    this.busqueda = query;
+
+    if (query.trim().length > 1) {
+      this.busquedaService.buscarTodo(query).subscribe(data => {
+        this.resultados = data;
+      });
+    } else {
+      this.resultados = [];
     }
   }
 }

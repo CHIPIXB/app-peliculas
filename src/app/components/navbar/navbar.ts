@@ -11,14 +11,14 @@ import { Router, RouterLink } from '@angular/router';
 export class Navbar {
   searchTerm: string = '';
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-    onSearch() {
-      if (this.searchTerm.trim()) {
-        this.router.navigate(['/search'], {
-          queryParams: { q: this.searchTerm }
-        });
-        this.searchTerm = '';
-      }
+  onSearch() {
+    if (this.searchTerm.trim()) {
+      this.router.navigate(['/search'], {
+        queryParams: { q: this.searchTerm.trim() }
+      });
+      this.searchTerm = '';
     }
+  }
 }

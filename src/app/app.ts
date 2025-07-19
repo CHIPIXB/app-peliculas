@@ -10,4 +10,10 @@ import { Navbar } from "./components/navbar/navbar";
 })
 export class App {
   protected title = 'app-peliculas';
+  scrollToTop(): void {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
 }

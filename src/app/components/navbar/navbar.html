@@ -1,18 +1,20 @@
-
 <nav class="navbar container my-4">
     <h1>BlueMovies</h1>
     <a routerLink="/">Home</a>
     <a routerLink="/peliculas">Películas</a>
     <a routerLink="/series">Series</a>
 
-    <form (submit)="onSearch()" class="search-form">
-        <input
-        type="text"
+    <form (submit)="onSearch(); $event.preventDefault()" class="search-form">
+    <input
         [(ngModel)]="searchTerm"
         name="search"
-        placeholder="Buscar películas o series..."
-        />
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        placeholder="Buscar..."
+    />
+    <button type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
     </form>
 </nav>
+
+
 
