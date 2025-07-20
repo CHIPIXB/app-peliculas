@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from '../interface/interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Movies {
-
+  
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getMovieDetails(movieId: number) {
-    return this.http.get<Movie>(`http://localhost:3000/api/peliculas/${movieId}`);
+    return this.http.get<Movie>(`${this.apiUrl}/api/peliculas/${movieId}`);
   }
 
   getMovieCredits(id: number) {
-    return this.http.get<{ director: string, cast: any[] }>(`http://localhost:3000/api/peliculas/${id}/credits`);
+    return this.http.get<{ director: string, cast: any[] }>(`${this.apiUrl}/api/peliculas/${id}/credits`);
   }
 }
