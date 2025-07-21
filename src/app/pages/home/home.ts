@@ -2,8 +2,8 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Navbar } from "../../components/navbar/navbar";
 import { BusquedaService } from '../../services/busqueda';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +26,7 @@ export class Home {
   }
 
   getPeliculas() {
-    this.http.get<any>('http://localhost:3000/api/peliculas?page=1')
+    this.http.get<any>(`${environment.apiUrl}/api/peliculas?page=1`)
       .subscribe({
         next: res => this.movies = res.results.slice(0, 20),
         error: err => console.error('Error al cargar películas:', err)
@@ -34,12 +34,13 @@ export class Home {
   }
 
   getSeries() {
-    this.http.get<any>('http://localhost:3000/api/series?page=1')
+    this.http.get<any>(`${environment.apiUrl}/api/series?page=1`)
       .subscribe({
         next: res => this.series = res.results.slice(0, 20),
         error: err => console.error('Error al cargar series:', err)
       });
   }
+
 
   verMasPeliculas() {
     this.router.navigate(['/peliculas']);

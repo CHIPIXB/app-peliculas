@@ -11,6 +11,9 @@ export class Movies {
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
+  getPopularMovies(page: number = 1) {
+  return this.http.get<any>(`${this.apiUrl}/api/peliculas?page=${page}`);
+}
   getMovieDetails(movieId: number) {
     return this.http.get<Movie>(`${this.apiUrl}/api/peliculas/${movieId}`);
   }

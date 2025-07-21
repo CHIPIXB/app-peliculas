@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-series',
@@ -22,7 +23,7 @@ export class SeriesComponent {
     }
 
     cargarSeries() {
-      this.http.get<any>(`http://localhost:3000/api/series?page=${this.page}`)
+      this.http.get<any>(`${environment.apiUrl}/api/peliculas?page=${this.page}`)
       .subscribe({
         next: res => {
           this.series = res.results;

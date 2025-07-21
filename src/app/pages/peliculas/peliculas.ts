@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class Peliculas {
     }
 
     cargarPeliculas() {
-    this.http.get<any>(`http://localhost:3000/api/peliculas?page=${this.page}`)
+    this.http.get<any>(`${environment.apiUrl}/api/peliculas?page=${this.page}`)
     .subscribe({
       next: res => {
         this.movies = res.results;
