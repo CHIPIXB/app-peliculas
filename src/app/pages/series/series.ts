@@ -23,7 +23,7 @@ export class SeriesComponent {
     }
 
     cargarSeries() {
-      this.http.get<any>(`${environment.apiUrl}/api/peliculas?page=${this.page}`)
+      this.http.get<any>(`${environment.apiUrl}/api/series?page=${this.page}`)
       .subscribe({
         next: res => {
           this.series = res.results;
